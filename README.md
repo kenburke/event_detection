@@ -12,28 +12,27 @@ Event detection through deconvolution in Igor Pro. Accompanied by GUI for hyperp
 
 ## structure
 
-This Igor procedure file `EventDetection.ipf` is built to supplement an existing analysis environment for electrophysiological data, `ECCLES Analysis`, originally developed by Dan Feldman, PhD. `EventDetection.ipf` adds the deconvolution code, as well as various visualization tools and user interfaces, to seamlessly incorporate event detection alongside preexisting analysis routines in `ECCLES Analysis`.
+This Igor procedure file `EventDetection.ipf` is built to supplement an existing custom analysis environment for electrophysiological data currently in use in the Bender Laboratory at UCSF. `EventDetection.ipf` adds the deconvolution code, as well as various visualization tools and user interfaces, to seamlessly incorporate event detection alongside preexisting analysis routines.
 
-Raw electrophysiology data is formatted in an Igor Binary Test file, as indicated by `ECCLES Collect` data acquisition software (contact myself, Ken Burke, for this software package if interested). An example raw data .ibt file is provided.
+Raw electrophysiology data is formatted in an Igor Binary Test file. An example raw data .ibt file is provided. Contact myself (Ken Burke) for more details on the core data collection and analysis software packages.
 
 ```
 .
 ├── README.md
 ├── sample_data.ibt
 ├── default_settings
-│   └── AnalysisSettings.ipf
-│   └── CollectFileDefaults.ipf
-│   └── EventDetection.ipf
-└── ECCLES Analysis V5.6.pxp
+└── EventDetection.ipf
 ```
 
 ## beginning
 
-To use the package, first make sure all .ipf files found in `default_settings` are found in your Igor Pro v6 User Procedures folder. Then open the Packed Experiment File (.pxp) and enter the path and file name sample .ibt file in the upper left hand corner (there will be an error due to your path likely being different from the default path, this can be corrected first in CollectFileDefaults.ipf before opening the ECCLES Analysis .pxp file alternatively).
+**NOTE:** A separate *pxp* file is required for this section. Contact myself (Ken Burke) to proceed if you wish to replicate the following instructions.
+
+To use the package, first make sure all .ipf files found in `default_settings` are found in your Igor Pro v6 User Procedures folder. Then open the Packed Experiment File (.pxp) and enter the path and file name sample .ibt file in the upper left hand corner (there will be an error due to your path likely being different from the default path, this can be corrected first in CollectFileDefaults.ipf before opening the .pxp file alternatively).
 
 Navigate to sweep 23 by entering that value in the “Sweep No.” section.
 
-From the “—Analyses—-“ menu, open Event Detection, Mini’s > Mini EPSC Analysis
+From the "Analyses“ menu, open Event Detection, Mini’s > Mini EPSC Analysis
 
 ## usage
 
