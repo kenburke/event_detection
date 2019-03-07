@@ -86,7 +86,7 @@ Note that in the inter-event interval distribution, you see peaks that deviate f
 
 A normal working environment will look like this:
 
-![](https://imgur.com/909LbAq.png)
+![](https://i.imgur.com/FeLPPPs.png)
 
 
 ## testing
