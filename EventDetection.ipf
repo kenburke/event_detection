@@ -687,11 +687,11 @@ Function FFT_Deconv(OutputSignal, Kernel, DestName)
 	Make/N=(numpnts(Output_FFT))/D/C DeconvFFT							// Length of FFTs above^^ = NumPnts(OutputSignal)/2 +1, must be same here
 	DeconvFFT=Output_FFT/Kernel_FFT
 
-	IFFT/DEST=Deconv_raw DeconvFFT
+	IFFT/DEST=Deconv_raw DeconvFFT											// inverse fourier, convert back from frequency to time
 
 	FilterFIR/LO={0.012, 0.013, 101} Deconv_raw								// uninterpretable without low-pass filter
 	WaveStats/Q Deconv_raw
-	Make/O/N=(numpnts(Deconv_raw)) $DestName = (Deconv_raw-V_avg)/V_sdev	// normalize to units of standard deviation
+	Make/O/N=(numpnts(Deconv_raw)) $DestName = (Deconv_raw-V_avg)/V_sdev	// normalize to units of standard deviation, to use SD of noise as threshold for detection
 	SetScale x, 0, (NumPnts(Deconv_raw)-1)/Fs, $DestName
 	
 	KillWaves Deconv_raw, DeconvFFT, Output_FFT, Kernel_FFT							// cleanup
