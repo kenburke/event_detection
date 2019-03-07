@@ -691,7 +691,7 @@ Function FFT_Deconv(OutputSignal, Kernel, DestName)
 
 	FilterFIR/LO={0.012, 0.013, 101} Deconv_raw								// uninterpretable without low-pass filter
 	WaveStats/Q Deconv_raw
-	Make/O/N=(numpnts(Deconv_raw)) $DestName = (Deconv_raw-V_avg)/V_sdev	// normalize to units of standard deviation (NOT ACCURATE)
+	Make/O/N=(numpnts(Deconv_raw)) $DestName = (Deconv_raw-V_avg)/V_sdev	// normalize to units of standard deviation
 	SetScale x, 0, (NumPnts(Deconv_raw)-1)/Fs, $DestName
 	
 	KillWaves Deconv_raw, DeconvFFT, Output_FFT, Kernel_FFT							// cleanup
